@@ -1,0 +1,2 @@
+Aqui van los PDF y hojas para colorear de la seccion Actividades.
+Registralos en content.js dentro de ACTIVIDADES.
