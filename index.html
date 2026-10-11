@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tim Marín – Aprende, juega y descubre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="nav">
+  <a href="#inicio" class="brand"><img src="assets/img/logo.png" alt="Tim Marín"></a>
+  <nav><a href="#juegos">Juegos</a><a href="#videos">Videos</a><a href="#actividades">Actividades</a></nav>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="nube n1"></div><div class="nube n2"></div><div class="nube n3"></div>
+  <span class="deco d1" aria-hidden="true">⭐</span><span class="deco d2" aria-hidden="true">🎈</span><span class="deco d3" aria-hidden="true">🌈</span><span class="deco d4" aria-hidden="true">🦋</span><span class="deco d5" aria-hidden="true">✨</span>
+  <div class="hero-txt">
+    <img class="logo" src="assets/img/logo.png" alt="Logo de Tim Marín">
+    <h1>¡Bienvenidos al mundo de Tim Marín!</h1>
+    <p>Aprende, juega y descubre las maravillas de Dios</p>
+    <div class="big">
+      <a class="btn b1" href="#juegos">🎮 Juegos</a>
+      <a class="btn b2" href="#videos">▶️ Videos</a>
+      <a class="btn b3" href="#actividades">✏️ Actividades</a>
+    </div>
+  </div>
+  <img class="chars" src="assets/img/personajes.jfif" alt="Los personajes de Tim Marín saludando">
+  <svg class="ola" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0,70 C240,10 480,120 720,60 C960,0 1200,110 1440,50 L1440,120 L0,120Z" fill="#9be37a"/><path d="M0,90 C240,50 480,130 720,90 C960,50 1200,120 1440,80 L1440,120 L0,120Z" fill="#fff6c9"/></svg>
+</section>
+
+<main>
+  <section id="juegos"><h2>🎮 Juegos destacados</h2><div id="lista-juegos" class="grid"></div></section>
+  <section id="videos">
+    <h2>▶️ Videos del canal</h2>
+    <div id="destacado"></div>
+    <div id="filtros" class="filtros"></div>
+    <div id="lista-videos" class="grid"></div>
+  </section>
+  <section id="actividades"><h2>✏️ Actividades para aprender jugando</h2><div id="lista-actividades" class="grid"></div></section>
+</main>
+
+<footer>Hecho con mucho cariño 💛 · Tim Marín · No pedimos datos personales a los niños.</footer>
+
+<div id="modal" class="modal" hidden>
+  <div class="box"><button id="cerrar" aria-label="Cerrar">✕</button><div id="visor"></div></div>
+</div>
+<script src="content.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
