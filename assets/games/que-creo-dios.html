@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>html,body{overflow-y:auto;-webkit-overflow-scrolling:touch}
+body{margin:0;padding:14px;font-family:'Baloo 2','Trebuchet MS',sans-serif;background:#d6f6ff;color:#3b1d4a;text-align:center}
+h1{padding:0 48px;margin:0 0 6px;color:#e11d1d;font-size:1.5rem}
+#it{font-size:1.6rem;font-weight:800;background:#fff;border-radius:24px;padding:16px;max-width:360px;margin:12px auto;box-shadow:0 6px 0 rgba(0,0,0,.1)}
+#it b{display:block;font-size:4.5rem}
+#d{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:460px;margin:auto}
+#d button{font:inherit;font-weight:800;font-size:1.15rem;border:0;border-radius:999px;padding:10px 18px;color:#fff;background:#06c8dd;box-shadow:0 4px 0 rgba(0,0,0,.2);cursor:pointer}
+#d button.r{background:#ff0a5c}
+#m{min-height:34px;font-size:1.3rem;font-weight:800;margin:12px 0}
+</style></head><body>
+<h1>🌍 ¿Qué creó Dios cada día?</h1>
+<p>¿En qué día de la creación apareció esto?</p>
+<div id="it"></div><div id="d"></div><div id="m"></div>
+<script>
+const T=[["💡","La luz",1],["☁️","El cielo",2],["🌊","Los mares",3],["🌱","Las plantas",3],["☀️","El sol",4],["🌙","La luna",4],["⭐","Las estrellas",4],["🐟","Los peces",5],["🐦","Las aves",5],["🐘","Los animales de la tierra",6],["👫","Las personas",6],["😴","El descanso",7]];
+let q,i,pts;
+const $=s=>document.getElementById(s);
+function ini(){q=[...T].sort(()=>Math.random()-.5).slice(0,10);i=0;pts=0;
+  $("d").innerHTML=[1,2,3,4,5,6,7].map(n=>`<button onclick="res(${n})">Día ${n}</button>`).join("");sig()}
+function sig(){
+  if(i>=q.length){$("it").innerHTML=`<b>🏆</b>¡Terminaste!`;$("d").innerHTML=`<button class="r" onclick="ini()">Jugar otra vez</button>`;$("m").textContent=`Aciertos a la primera: ${pts} de ${q.length}`;return}
+  $("it").innerHTML=`<b>${q[i][0]}</b>${q[i][1]}`;$("m").textContent="";fallo=false}
+let fallo=false;
+function res(n){
+  if(i>=q.length)return;
+  if(n==q[i][2]){if(!fallo)pts++;$("m").textContent="🎉 ¡Correcto!";i++;setTimeout(sig,900)}
+  else{fallo=true;$("m").textContent="🤔 Inténtalo de nuevo"}
+}
+ini();
+</script></body></html>
