@@ -36,49 +36,49 @@ const VIDEOS = [
     categoria: "La creación"
   },
   {
-    titulo: "El primer día de la creación",
+    titulo: "El 1 día de la creación",
     descripcion: "Dios creó la luz y separó el día de la noche.",
     youtubeId: "h4ad6wJwz_E",
     fecha: "2026-10-2",
     categoria: "La creación"
   },
   {
-    titulo: "El segundo día de la creación",
+    titulo: "El 2 día de la creación",
     descripcion: "Dios creó el cielo y separó las aguas de arriba y las de abajo.",
     youtubeId: "_Q_-Q1iBuOo",
     fecha: "2026-10-3",
     categoria: "La creación"
   },
   {
-    titulo: "El tercer día de la creación",
+    titulo: "El 3 día de la creación",
     descripcion: "Dios juntó las aguas para hacer los mares, hizo aparecer la tierra seca y creó las plantas y los árboles.",
     youtubeId: "bPCYRxqAUN8",
     fecha: "2026-10-4",
     categoria: "La creación"
   },
   {
-    titulo: "El cuarto día de la creación",
+    titulo: "El 4 día de la creación",
     descripcion: "Dios creó el sol, la luna y las estrellas para alumbrar el día y la noche.",
     youtubeId: "WjPgDS-tQJ4",
     fecha: "2026-10-5",
     categoria: "La creación"
   },
   {
-    titulo: "El quinto día de la creación",
+    titulo: "El 5 día de la creación",
     descripcion: "Dios llenó el mar de peces y el cielo de aves.",
     youtubeId: "Z5-iatFjeR8",
     fecha: "2026-10-6",
     categoria: "La creación"
   },
   {
-    titulo: "El sexto día de la creación",
+    titulo: "El 6 día de la creación",
     descripcion: "Dios creó los animales de la tierra y al ser humano.",
     youtubeId: "UMVGZmkpaVo",
     fecha: "2026-10-7",
     categoria: "La creación"
   },
   {
-    titulo: "El séptimo día de la creación",
+    titulo: "El 7 día de la creación",
     descripcion: "Dios terminó su obra y descansó.",
     youtubeId: "noabbsaEicI",
     fecha: "2026-10-8",
