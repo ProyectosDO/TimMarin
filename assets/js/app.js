@@ -35,7 +35,7 @@ let filtro = "Todos";
 const tarjetaVideo = v => `
   <article class="card video" data-v="${esc(v.id)}" tabindex="0">
     <div class="img"><img loading="lazy" src="https://i.ytimg.com/vi/${esc(v.id)}/hqdefault.jpg" alt="Miniatura: ${esc(v.titulo)}" onerror="this.remove()"><span class="play">▶</span></div>
-    <div class="cuerpo"><span class="etq">${esc(v.categoria)}</span><h3>${esc(v.titulo)}</h3><p>${esc(v.descripcion)}</p><small>${esc(v.fecha)}</small></div>
+    <div class="cuerpo"><span class="etq">${esc(v.categoria)}</span><h3>${esc(v.titulo)}</h3><p>${esc(v.descripcion)}</p></div>
   </article>`;
 function pintarVideos() {
   if (!videos.length) {
