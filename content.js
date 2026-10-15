@@ -23,12 +23,61 @@ const CATEGORIAS = [
 */
 const VIDEOS = [
   {
-    titulo: "Nuevo video de Tim Marín",          // ← cambia por el título real
-    descripcion: "¡Mira el nuevo video de Tim Marín!", // ← cambia por la descripción real
+    titulo: "La creación de Dios",
+    descripcion: "Descubre cómo Dios creó el mundo y todo lo que hay en él.",
     youtubeId: "793H_v6Sn3E",
     fecha: "2026-10-11",
-    categoria: "Aprendamos con Tim Marín"        // ← o: La creación, Historias bíblicas, Canciones infantiles cristianas
+    categoria: "La creación"
   },
+  {
+    titulo: "El primer día de la creación",
+    descripcion: "Aprendamos sobre el primer día de la creación.",
+    youtubeId: "h4ad6wJwz_E",
+    fecha: "2026-10-11",
+    categoria: "La creación"
+  },
+  {
+    titulo: "El segundo día de la creación",
+    descripcion: "Aprendamos sobre el segundo día de la creación.",
+    youtubeId: "_Q_-Q1iBuOo",
+    fecha: "2026-10-11",
+    categoria: "La creación"
+  },
+  {
+    titulo: "El tercer día de la creación",
+    descripcion: "Aprendamos sobre el tercer día de la creación.",
+    youtubeId: "bPCYRxqAUN8",
+    fecha: "2026-10-11",
+    categoria: "La creación"
+  },
+  {
+    titulo: "El cuarto día de la creación",
+    descripcion: "Aprendamos sobre el cuarto día de la creación.",
+    youtubeId: "WjPgDS-tQJ4",
+    fecha: "2026-10-11",
+    categoria: "La creación"
+  },
+  {
+    titulo: "El quinto día de la creación",
+    descripcion: "Aprendamos sobre el quinto día de la creación.",
+    youtubeId: "Z5-iatFjeR8",
+    fecha: "2026-10-11",
+    categoria: "La creación"
+  },
+  {
+    titulo: "El sexto día de la creación",
+    descripcion: "Aprendamos sobre el sexto día de la creación.",
+    youtubeId: "UMVGZmkpaVo",
+    fecha: "2026-10-11",
+    categoria: "La creación"
+  },
+  {
+    titulo: "El séptimo día de la creación",
+    descripcion: "Aprendamos sobre el séptimo día de la creación.",
+    youtubeId: "noabbsaEicI",
+    fecha: "2026-10-11",
+    categoria: "La creación"
+  }
 ];
 
 /* JUEGOS — archivos HTML dentro de assets/games/ */
