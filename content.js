@@ -1,100 +1,90 @@
-/* ============================================================
-   CONTENIDO CENTRAL DE TIM MARÍN
-   Edita este archivo para agregar videos, juegos y actividades.
-   La página crea las tarjetas automáticamente.
-   ============================================================ */
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const vacio = t => `<p class="vacio">${t}</p>`;
 
-/* CANAL DE YOUTUBE — pega aquí el enlace de tu canal para activar los botones "Suscríbete".
-   Ejemplo: "https://www.youtube.com/@TuCanal"   (si lo dejas vacío, los botones no se muestran) */
-const CANAL_YOUTUBE = "https://www.youtube.com/@TIMMARIN";
+// Acepta el ID o un enlace completo de YouTube (watch, youtu.be, shorts, embed)
+function idYoutube(x) {
+  const m = String(x || "").match(/(?:v=|youtu\.be\/|shorts\/|embed\/)([\w-]{11})/);
+  return m ? m[1] : String(x || "").trim();
+}
 
-const CATEGORIAS = [
-  "La creación",
-  "Historias bíblicas",
-  "Canciones infantiles cristianas",
-  "Aprendamos con Tim Marín"
-];
+// ---- Ventana emergente (videos y juegos dentro de la página)
+function abrir(html, juego) {
+  $("#visor").innerHTML = html;
+  $(".box").classList.toggle("juego", !!juego);
+  $("#modal").hidden = false;
+}
+function cerrar() { $("#modal").hidden = true; $("#visor").innerHTML = ""; }
+$("#cerrar").onclick = cerrar;
+$("#modal").onclick = e => { if (e.target.id === "modal") cerrar(); };
+document.addEventListener("keydown", e => { if (e.key === "Escape") cerrar(); });
 
-/* VIDEOS — la fecha NO se muestra a los niños: solo sirve para ordenar (más reciente primero)
-   y elegir el video destacado. Pon la fecha real o una más alta para que salga antes.
-   En youtubeId puedes poner el ID o pegar el enlace completo de YouTube.
-   Ejemplo (copia el bloque dentro de VIDEOS y cambia los datos):
-   {
-     titulo: "El primer día de la creación",
-     descripcion: "Aprendamos sobre la luz y la oscuridad.",
-     youtubeId: "ID_REAL_DEL_VIDEO",
-     fecha: "2026-10-11",
-     categoria: "La creación"
-   },
-*/
-const VIDEOS = [
-  {
-    titulo: "La creación de Dios",
-    descripcion: "Descubre cómo Dios creó el mundo y todo lo que hay en él.",
-    youtubeId: "793H_v6Sn3E",
-    fecha: "2026-10-1",
-    categoria: "La creación"
-  },
-  {
-    titulo: "El 1 día de la creación",
-    descripcion: "Dios creó la luz y separó el día de la noche.",
-    youtubeId: "h4ad6wJwz_E",
-    fecha: "2026-10-2",
-    categoria: "La creación"
-  },
-  {
-    titulo: "El 2 día de la creación",
-    descripcion: "Dios creó el cielo y separó las aguas de arriba y las de abajo.",
-    youtubeId: "_Q_-Q1iBuOo",
-    fecha: "2026-10-3",
-    categoria: "La creación"
-  },
-  {
-    titulo: "El 3 día de la creación",
-    descripcion: "Dios juntó las aguas para hacer los mares, hizo aparecer la tierra seca y creó las plantas y los árboles.",
-    youtubeId: "bPCYRxqAUN8",
-    fecha: "2026-10-4",
-    categoria: "La creación"
-  },
-  {
-    titulo: "El 4 día de la creación",
-    descripcion: "Dios creó el sol, la luna y las estrellas para alumbrar el día y la noche.",
-    youtubeId: "WjPgDS-tQJ4",
-    fecha: "2026-10-5",
-    categoria: "La creación"
-  },
-  {
-    titulo: "El 5 día de la creación",
-    descripcion: "Dios llenó el mar de peces y el cielo de aves.",
-    youtubeId: "Z5-iatFjeR8",
-    fecha: "2026-10-6",
-    categoria: "La creación"
-  },
-  {
-    titulo: "El 6 día de la creación",
-    descripcion: "Dios creó los animales de la tierra y al ser humano.",
-    youtubeId: "UMVGZmkpaVo",
-    fecha: "2026-10-7",
-    categoria: "La creación"
-  },
-  {
-    titulo: "El 7 día de la creación",
-    descripcion: "Dios terminó su obra y descansó.",
-    youtubeId: "noabbsaEicI",
-    fecha: "2026-10-8",
-    categoria: "La creación"
+// ---- Juegos
+$("#lista-juegos").innerHTML = JUEGOS.length ? JUEGOS.map((j, i) => `
+  <article class="card"><div class="img">${esc(j.emoji || "🎮")}</div>
+  <div class="cuerpo"><h3>${esc(j.titulo)}</h3><p>${esc(j.descripcion)}</p>
+  <button class="btn b1" data-j="${i}">¡Jugar!</button></div></article>`).join("")
+  : vacio("¡Muy pronto habrá juegos nuevos! 🎈");
+document.querySelectorAll("[data-j]").forEach(b => b.onclick = () =>
+  abrir(`<iframe src="${esc(JUEGOS[b.dataset.j].archivo)}" title="${esc(JUEGOS[b.dataset.j].titulo)}"></iframe>`, true));
+
+// ---- Videos
+const videos = VIDEOS.map(v => ({ ...v, id: idYoutube(v.youtubeId) }))
+  .filter(v => v.id).sort((a, b) => fechaNum(b.fecha) - fechaNum(a.fecha));
+// Convierte "2026-10-8" o "2026-10-08" en un número comparable (más alto = más reciente)
+function fechaNum(f) {
+  const [y, m, d] = String(f || "").split("-").map(Number);
+  return new Date(y || 0, (m || 1) - 1, d || 1).getTime() || 0;
+}
+let filtro = "Todos";
+const tarjetaVideo = v => `
+  <article class="card video" data-v="${esc(v.id)}" tabindex="0">
+    <div class="img"><img loading="lazy" src="https://i.ytimg.com/vi/${esc(v.id)}/hqdefault.jpg" alt="Miniatura: ${esc(v.titulo)}" onerror="this.remove()"><span class="play">▶</span></div>
+    <div class="cuerpo"><span class="etq">${esc(v.categoria)}</span><h3>${esc(v.titulo)}</h3><p>${esc(v.descripcion)}</p></div>
+  </article>`;
+function pintarVideos() {
+  if (!videos.length) {
+    $("#destacado").innerHTML = "";
+    $("#filtros").innerHTML = "";
+    $("#lista-videos").innerHTML = vacio("¡Pronto verás aquí los videos de Tim Marín! 🎬");
+    return;
   }
-];
+  $("#destacado").innerHTML = `<div class="destacado"><h3>⭐ Lo más nuevo</h3>${tarjetaVideo(videos[0])}</div>`;
+  const cats = ["Todos", ...new Set([...CATEGORIAS, ...videos.map(v => v.categoria)].filter(c => videos.some(v => v.categoria === c)))];
+  $("#filtros").innerHTML = cats.map(c => `<button class="${c === filtro ? "on" : ""}" data-c="${esc(c)}">${esc(c)}</button>`).join("");
+  const lista = videos.filter(v => filtro === "Todos" || v.categoria === filtro);
+  $("#lista-videos").innerHTML = lista.map(tarjetaVideo).join("");
+  document.querySelectorAll("[data-c]").forEach(b => b.onclick = () => { filtro = b.dataset.c; pintarVideos(); reveal(); });
+  document.querySelectorAll("[data-v]").forEach(c => {
+    const play = () => abrir(`<iframe src="https://www.youtube-nocookie.com/embed/${c.dataset.v}?autoplay=1&rel=0" title="Video de Tim Marín" allow="autoplay; encrypted-media; picture-in-picture; fullscreen; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`);
+    c.onclick = play; c.onkeydown = e => { if (e.key === "Enter") play(); };
+  });
+}
+pintarVideos();
 
-/* JUEGOS — archivos HTML dentro de assets/games/ */
-const JUEGOS = [
-  { titulo: "Sopa de letras de la creación", descripcion: "Encuentra las palabras de los siete días de la creación.", emoji: "🔤", archivo: "assets/games/sopa-de-letras.html" },
-  { titulo: "¿Qué creó Dios cada día?", descripcion: "Une cada cosa creada con el día en que Dios la hizo.", emoji: "🌍", archivo: "assets/games/que-creo-dios.html" },
-  { titulo: "¡Encuentra los animales de Nico!", descripcion: "Acompaña a Nico y encuentra todos los animales escondidos.", emoji: "🐾", archivo: "assets/games/nico-animales.html" }
-  // Para agregar otro juego: copia una línea, cambia los datos y sube su archivo a assets/games/
-];
+// ---- Actividades
+$("#lista-actividades").innerHTML = ACTIVIDADES.length ? ACTIVIDADES.map(a => `
+  <article class="card"><div class="img">${a.imagen ? `<img loading="lazy" src="${esc(a.imagen)}" alt="${esc(a.titulo)}">` : "🖍️"}</div>
+  <div class="cuerpo"><h3>${esc(a.titulo)}</h3><p>${esc(a.descripcion)}</p>
+  <a class="btn b3" href="${esc(a.archivo)}" download>⬇️ Descargar</a></div></article>`).join("")
+  : vacio("¡Estamos preparando hojas para colorear y fichas divertidas! ✏️");
 
-/* ACTIVIDADES — archivos dentro de assets/downloads/ ; imagen es opcional */
-const ACTIVIDADES = [
-  // { titulo: "Colorea los siete días", descripcion: "Hoja para colorear sobre la creación.", imagen: "assets/downloads/colorear.jpg", archivo: "assets/downloads/colorear.pdf" },
-];
+// ---- Animaciones al hacer scroll
+const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add("vis"); io.unobserve(e.target); }
+}), { threshold: .12 }) : null;
+function reveal() {
+  document.querySelectorAll(".card:not(.vis)").forEach((c, i) => {
+    c.style.setProperty("--d", (i % 4) * 0.1 + "s");
+    io ? io.observe(c) : c.classList.add("vis");
+  });
+  document.querySelectorAll("main section:not(.vis)").forEach(s => io ? io.observe(s) : s.classList.add("vis"));
+}
+reveal();
+addEventListener("scroll", () => $(".nav").classList.toggle("mini", scrollY > 40), { passive: true });
+
+// ---- Botones de suscripción
+if (typeof CANAL_YOUTUBE === "string" && CANAL_YOUTUBE.trim()) {
+  const u = CANAL_YOUTUBE.trim() + (CANAL_YOUTUBE.includes("?") ? "&" : "?") + "sub_confirmation=1";
+  document.querySelectorAll("[data-sub]").forEach(a => { a.href = u; a.hidden = false; });
+}
