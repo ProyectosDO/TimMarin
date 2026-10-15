@@ -121,3 +121,56 @@ footer{background:linear-gradient(90deg,var(--cian),#5b6bff,var(--rosa));backgro
 .nav nav a.sub:hover{background:#d90000}
 .sub-btn{background:#ff0000;box-shadow:0 5px 0 #a00000;font-size:1.1rem}
 .subfila{margin:0 0 14px}
+
+/* ===== Celulares ===== */
+@media (max-width:640px){
+  body{font-size:16px}
+  /* barra superior ordenada: logo arriba, botones en una fila */
+  .nav{flex-direction:column;justify-content:center;gap:2px;padding:4px 8px}
+  .nav .brand img{height:46px}
+  .nav.mini .brand{display:none}
+  .nav nav{display:flex;justify-content:center;align-items:center;gap:4px;width:100%;flex-wrap:nowrap}
+  .nav nav a{margin:0;padding:6px 9px;font-size:.85rem;white-space:nowrap}
+  section{scroll-margin-top:52px}
+  /* portada */
+  .hero{padding:16px 12px 90px;gap:6px}
+  .logo{width:150px}
+  h1{font-size:1.7rem}
+  .hero p{font-size:1.05rem;margin-bottom:12px}
+  .big{gap:8px}
+  .big .btn{font-size:1rem;padding:9px 16px}
+  .chars{max-width:100%;border-width:4px;border-radius:24px}
+  .deco{font-size:1.5rem}.d3,.d4{display:none}
+  .ola{height:60px}
+  /* secciones y tarjetas más compactas: 2 por fila */
+  main{padding:0 10px}
+  section{padding:20px 0}
+  h2{font-size:1.45rem;margin-bottom:10px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .card{border-radius:20px}
+  .card .img{font-size:2.6rem}
+  .card:hover .img{font-size:2.8rem}
+  .play{width:44px;height:44px;font-size:1.2rem}
+  .card .cuerpo{padding:9px 10px 12px;gap:4px}
+  .card h3{font-size:.98rem}
+  .card p{font-size:.82rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .card .btn{font-size:.9rem;padding:6px 14px}
+  .etq{font-size:.72rem;padding:1px 8px}
+  .destacado .card{flex-direction:column;border-width:3px}
+  .destacado .card .img{flex:none;width:100%}
+  .destacado .card .cuerpo{flex:none}
+  .destacado .card p{-webkit-line-clamp:4}
+  /* filtros en una sola fila deslizable */
+  .filtros{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+  .filtros button{white-space:nowrap;font-size:.85rem;padding:3px 12px}
+  .subfila{text-align:center}
+  .sub-btn{font-size:1rem;padding:8px 18px}
+  /* ventana de juegos y videos */
+  .modal{padding:6px}
+  .box.juego{height:94vh;height:94dvh}
+  #cerrar{width:38px;height:38px;font-size:1.1rem}
+  footer{font-size:.85rem;padding:18px 12px}
+}
+@media (max-width:360px){
+  .nav nav a{padding:6px 6px;font-size:.78rem}
+}
