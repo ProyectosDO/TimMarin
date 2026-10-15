@@ -4,6 +4,10 @@
    La página crea las tarjetas automáticamente.
    ============================================================ */
 
+/* CANAL DE YOUTUBE — pega aquí el enlace de tu canal para activar los botones "Suscríbete".
+   Ejemplo: "https://www.youtube.com/@TuCanal"   (si lo dejas vacío, los botones no se muestran) */
+const CANAL_YOUTUBE = "https://www.youtube.com/@TIMMARIN";
+
 const CATEGORIAS = [
   "La creación",
   "Historias bíblicas",

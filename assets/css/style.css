@@ -112,3 +112,12 @@ footer{background:linear-gradient(90deg,var(--cian),#5b6bff,var(--rosa));backgro
 .box.juego{height:min(92vh,820px);height:min(92dvh,820px)}
 .box.juego #visor{height:100%}
 .box.juego iframe{height:100%;width:100%;aspect-ratio:auto}
+
+/* Botón suscribirse */
+[hidden]{display:none!important}
+@keyframes timbre{0%,60%,100%{rotate:0deg}10%,30%{rotate:-18deg}20%,40%{rotate:18deg}50%{rotate:-8deg}}
+.bell{display:inline-block;transform-origin:50% 10%;animation:timbre 2.6s ease-in-out infinite}
+.nav nav a.sub{background:#ff0000;color:#fff;font-weight:800;box-shadow:0 3px 0 #a00000}
+.nav nav a.sub:hover{background:#d90000}
+.sub-btn{background:#ff0000;box-shadow:0 5px 0 #a00000;font-size:1.1rem}
+.subfila{margin:0 0 14px}

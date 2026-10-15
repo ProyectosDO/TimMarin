@@ -77,3 +77,9 @@ function reveal() {
 }
 reveal();
 addEventListener("scroll", () => $(".nav").classList.toggle("mini", scrollY > 40), { passive: true });
+
+// ---- Botones de suscripción
+if (typeof CANAL_YOUTUBE === "string" && CANAL_YOUTUBE.trim()) {
+  const u = CANAL_YOUTUBE.trim() + (CANAL_YOUTUBE.includes("?") ? "&" : "?") + "sub_confirmation=1";
+  document.querySelectorAll("[data-sub]").forEach(a => { a.href = u; a.hidden = false; });
+}
