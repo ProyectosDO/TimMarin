@@ -30,7 +30,12 @@ document.querySelectorAll("[data-j]").forEach(b => b.onclick = () =>
 
 // ---- Videos
 const videos = VIDEOS.map(v => ({ ...v, id: idYoutube(v.youtubeId) }))
-  .filter(v => v.id).sort((a, b) => String(b.fecha).localeCompare(String(a.fecha)));
+  .filter(v => v.id).sort((a, b) => fechaNum(b.fecha) - fechaNum(a.fecha));
+// Convierte "2026-10-8" o "2026-10-08" en un número comparable (más alto = más reciente)
+function fechaNum(f) {
+  const [y, m, d] = String(f || "").split("-").map(Number);
+  return new Date(y || 0, (m || 1) - 1, d || 1).getTime() || 0;
+}
 let filtro = "Todos";
 const tarjetaVideo = v => `
   <article class="card video" data-v="${esc(v.id)}" tabindex="0">
