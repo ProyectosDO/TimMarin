@@ -11,7 +11,9 @@ const CATEGORIAS = [
   "Aprendamos con Tim Marín"
 ];
 
-/* VIDEOS — en youtubeId puedes poner el ID o pegar el enlace completo de YouTube.
+/* VIDEOS — la fecha NO se muestra a los niños: solo sirve para ordenar (más reciente primero)
+   y elegir el video destacado. Pon la fecha real o una más alta para que salga antes.
+   En youtubeId puedes poner el ID o pegar el enlace completo de YouTube.
    Ejemplo (copia el bloque dentro de VIDEOS y cambia los datos):
    {
      titulo: "El primer día de la creación",
@@ -26,54 +28,54 @@ const VIDEOS = [
     titulo: "La creación de Dios",
     descripcion: "Descubre cómo Dios creó el mundo y todo lo que hay en él.",
     youtubeId: "793H_v6Sn3E",
-    fecha: "2026-10-11",
+    fecha: "2026-10-18",
     categoria: "La creación"
   },
   {
     titulo: "El primer día de la creación",
-    descripcion: "Aprendamos sobre el primer día de la creación.",
+    descripcion: "Dios creó la luz y separó el día de la noche.",
     youtubeId: "h4ad6wJwz_E",
-    fecha: "2026-10-11",
+    fecha: "2026-10-17",
     categoria: "La creación"
   },
   {
     titulo: "El segundo día de la creación",
-    descripcion: "Aprendamos sobre el segundo día de la creación.",
+    descripcion: "Dios creó el cielo y separó las aguas de arriba y las de abajo.",
     youtubeId: "_Q_-Q1iBuOo",
-    fecha: "2026-10-11",
+    fecha: "2026-10-16",
     categoria: "La creación"
   },
   {
     titulo: "El tercer día de la creación",
-    descripcion: "Aprendamos sobre el tercer día de la creación.",
+    descripcion: "Dios juntó las aguas para hacer los mares, hizo aparecer la tierra seca y creó las plantas y los árboles.",
     youtubeId: "bPCYRxqAUN8",
-    fecha: "2026-10-11",
+    fecha: "2026-10-15",
     categoria: "La creación"
   },
   {
     titulo: "El cuarto día de la creación",
-    descripcion: "Aprendamos sobre el cuarto día de la creación.",
+    descripcion: "Dios creó el sol, la luna y las estrellas para alumbrar el día y la noche.",
     youtubeId: "WjPgDS-tQJ4",
-    fecha: "2026-10-11",
+    fecha: "2026-10-14",
     categoria: "La creación"
   },
   {
     titulo: "El quinto día de la creación",
-    descripcion: "Aprendamos sobre el quinto día de la creación.",
+    descripcion: "Dios llenó el mar de peces y el cielo de aves.",
     youtubeId: "Z5-iatFjeR8",
-    fecha: "2026-10-11",
+    fecha: "2026-10-13",
     categoria: "La creación"
   },
   {
     titulo: "El sexto día de la creación",
-    descripcion: "Aprendamos sobre el sexto día de la creación.",
+    descripcion: "Dios creó los animales de la tierra y, al final, a las personas.",
     youtubeId: "UMVGZmkpaVo",
-    fecha: "2026-10-11",
+    fecha: "2026-10-12",
     categoria: "La creación"
   },
   {
     titulo: "El séptimo día de la creación",
-    descripcion: "Aprendamos sobre el séptimo día de la creación.",
+    descripcion: "Dios terminó su obra, descansó y bendijo el séptimo día.",
     youtubeId: "noabbsaEicI",
     fecha: "2026-10-11",
     categoria: "La creación"
